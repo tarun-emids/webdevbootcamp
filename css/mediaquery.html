@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Media Query</title>
+
+    <style>
+        .box{
+            background-color: #3498db;
+            color:white;
+            padding: 50px;
+            margin: 20px auto;
+            width: 70%;
+            transition: all 0.3s ease;
+        }
+
+        body{
+            text-align:center;
+            padding: 20px;
+            margin:0;
+        }
+
+        @media screen and (max-width:600px) {
+            .box{
+                background-color: #e74c3c;
+            }
+            h1{
+                color:#e74c3c;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Responsive Media Query Example</h1>
+    <p>Resize the browser window to view on different devices to see the box change color</p>
+
+    <div class="box">
+        I change color and size depending on the screen size
+    </div>
+    
+</body>
+</html>

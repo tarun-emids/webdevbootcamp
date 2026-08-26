@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Properties</title>
+
+    <style>
+        .box{
+            background-color: blueviolet;
+        }
+
+        *{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+
+        .container{
+            border:1px solid #ccc;
+            margin-bottom: 3px;
+            padding: 10px;
+        }
+
+        .flex-container{
+            display: flex;
+            gap:10px
+        }
+
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h1>CSS Display Property Examples</h1>
+
+    <h2>Inline and Block</h2>
+
+    <div class="container">
+        <div class="box" style="display: inline; background-color: rgb(0, 110, 255);">Inline Element</div>
+        <div class="box" style="display: block; background-color: rgb(0, 110, 255);">Block Element</div>
+    </div>
+
+    <h2>Inline Block</h2>
+
+    <div class="container">
+        <div class="box" style="display: inline-block; background-color: rgb(0, 110, 255);">Inline-Block Element</div>
+        <div class="box" style="display: inline-block; background-color: rgb(0, 110, 255);">Inline-Block Element</div>
+    </div>
+
+    <h2>None Display</h2>
+    <div class="container">
+        <div class="box" style="display: none; ">You cant see me!! I am being displayed as none</div>
+    </div>
+
+    <h2>Flex</h2>
+    <div class="container flex-container">
+        <div class="box">Flex Item 1</div>
+        <div class="box">Flex Item 2</div>
+        <div class="box">Flex Item 3</div>
+    </div>
+
+    <h2>Grid</h2>
+    <div class="container grid-container">
+        <div class="box">Grid Item 1</div>
+        <div class="box">Grid Item 2</div>
+        <div class="box">Grid Item 3</div>
+        <div class="box">Grid Item 4</div>
+        <div class="box">Grid Item 5</div>
+        <div class="box">Grid Item 6</div>
+    </div>
+</body>
+</html>
