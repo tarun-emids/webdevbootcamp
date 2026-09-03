@@ -3,7 +3,7 @@ import pool from '../config/db.js'
 export const getAllProducts = async (req, res) => {
     try{
 
-        const [rows] = await pool.query('SELECT * FROM products');
+        const [rows] = await pool.query('SELECT * FROM product');
         res.json(rows)
         
     } catch (error){
@@ -16,7 +16,7 @@ export const getAllProducts = async (req, res) => {
 export const getProductById = async (req, res) => {
     try{
 
-        const [rows] = await pool.query('SELECT * FROM products WHERE id = ?', [req.params.id]);
+        const [rows] = await pool.query('SELECT * FROM product WHERE id = ?', [req.params.id]);
         if(rows.length === 0) {
             return res.status(404).json({error: 'Product Not Found'})
         }
@@ -39,11 +39,11 @@ export const createProduct = async (req, res) => {
         }
 
         const [result] = await pool.query(
-            'INSERT INTO products (name, price, description) VALUES (?, ?, ?)',
+            'INSERT INTO product (name, price, description) VALUES (?, ?, ?)',
             [name, price, description]
         )
 
-        res.status(201),json({id : result.insertId, name, price, description});
+        res.status(201).json({id : result.insertId, name, price, description});
         
     } catch (error){
 
@@ -62,7 +62,7 @@ export const updateProduct = async (req, res) => {
         }
 
         const [result] = await pool.query(
-            'UPDATE products SET name = ?, price = ?, description = ? WHERE id = ?',
+            'UPDATE product SET name = ?, price = ?, description = ? WHERE id = ?',
             [name, price, description, req.params.id]
         )
 
@@ -70,7 +70,7 @@ export const updateProduct = async (req, res) => {
             return res.status(404).json({error: 'Product Not Found'})
         }
 
-        res.status(201),json({message: "Product Updated Succcessfully"});
+        res.status(201).json({message: "Product Updated Succcessfully"});
        
 
     } catch (error){
@@ -83,7 +83,7 @@ export const updateProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => {
     try{
 
-        const [result] = await pool.query ("DELETE FROM products WHERE id = ?", [req.params.id])
+        const [result] = await pool.query ("DELETE FROM product WHERE id = ?", [req.params.id])
 
         if(result.affectedRows === 0) {
             return res.status(404).json({error: 'Product Not Found'})
